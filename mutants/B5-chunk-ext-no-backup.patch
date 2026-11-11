@@ -1,0 +1,11 @@
+--- a/src/chunked.cpp
++++ b/src/chunked.cpp
+@@ -64,7 +64,7 @@
+       while (is_ows(at(pos_))) ++pos_;
+       parse_chunk_ext_value();
+     } else {
+-      pos_ = after_name;
++      (void)after_name;
+     }
+ 
+     size_t before_ws = pos_;

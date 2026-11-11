@@ -1,0 +1,11 @@
+--- a/src/chunked.cpp
++++ b/src/chunked.cpp
+@@ -103,7 +103,7 @@
+       uint8_t escaped = at(pos_ + 1);
+       if (!is_ows(escaped) && !is_vchar(escaped)) unexpected(pos_ + 1, ErrorClass::BadChunkExt);
+       pos_ += 2;
+-    } else if (is_ows(b) || b == 0x21 || (b >= 0x23 && b <= 0x5B) || (b >= 0x5D && b <= 0x7E)) {
++    } else if (is_ows(b) || b == 0x21 || (b >= 0x23 && b <= 0x5B) || (b >= 0x5E && b <= 0x7E)) {
+       ++pos_;  // qdtext
+     } else {
+       unexpected(pos_, ErrorClass::BadChunkExt);

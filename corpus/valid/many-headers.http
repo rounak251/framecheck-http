@@ -1,0 +1,7 @@
+GET / HTTP/1.1
+Host: a.example
+Accept: */*
+User-Agent: seed
+X-Empty:
+Cookie: a=b; c=d
+

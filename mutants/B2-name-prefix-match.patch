@@ -1,0 +1,13 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -40,7 +40,9 @@
+ // True when the field name is the lowercase literal. Field names are
+ // case-insensitive (RFC 9110 section 5.1).
+ bool name_is(const uint8_t* data, const FieldLine& f, const char* lower) {
+-  return equals_ci(data + f.name_begin, data + f.name_end, lower);
++  size_t n = std::strlen(lower);
++  return f.name_end - f.name_begin >= n &&
++         equals_ci(data + f.name_begin, data + f.name_begin + n, lower);
+ }
+ 
+ bool all_digits(const uint8_t* begin, const uint8_t* end) {

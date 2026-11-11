@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -62,8 +62,6 @@
+   if (!all_digits(a_begin, a_end) || !all_digits(b_begin, b_end)) {
+     return std::equal(a_begin, a_end, b_begin, b_end);
+   }
+-  while (a_begin != a_end && *a_begin == '0') ++a_begin;
+-  while (b_begin != b_end && *b_begin == '0') ++b_begin;
+   return std::equal(a_begin, a_end, b_begin, b_end);
+ }
+ 

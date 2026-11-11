@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -195,7 +195,7 @@
+     if (b == kCr || b == kLf) unexpected(pos_, field_class(ErrorClass::BadFieldValue));
+     if (!is_ows(b) && !is_vchar(b)) throw Reject{field_class(ErrorClass::BadFieldValue), pos_};
+     ++pos_;
+-    if (!is_ows(b)) f.value_end = pos_;
++    f.value_end = pos_;
+   }
+   pos_ += 2;
+   return f;

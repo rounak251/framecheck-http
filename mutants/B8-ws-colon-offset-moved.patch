@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -182,7 +182,7 @@
+     throw Reject{ErrorClass::BadTrailer, f.line_start};
+   }
+ 
+-  if (is_ows(at(pos_))) throw Reject{field_class(ErrorClass::WsBeforeColon), pos_};  // HF-01
++  if (is_ows(at(pos_))) throw Reject{field_class(ErrorClass::WsBeforeColon), f.name_begin};  // HF-01
+   if (at(pos_) != ':') unexpected(pos_, field_class(ErrorClass::BadFieldName));  // HF-02
+   ++pos_;
+ 

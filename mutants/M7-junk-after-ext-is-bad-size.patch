@@ -1,0 +1,11 @@
+--- a/src/chunked.cpp
++++ b/src/chunked.cpp
+@@ -73,7 +73,7 @@
+     // Whitespace before the CRLF is not in the grammar. Report it as a bad
+     // extension, which the spec table allows for a malformed extension.
+     if (pos_ != before_ws) unexpected(pos_, ErrorClass::BadChunkExt);
+-    if (at(pos_) != kCr) unexpected(pos_, ErrorClass::BadChunkExt);
++    if (at(pos_) != kCr) unexpected(pos_, ErrorClass::BadChunkSize);
+     return;
+   }
+ }

@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # The same image the local CI rehearsal uses, so a green run here matches it.
+    container: debian:bookworm-slim
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends make g++ python3 ca-certificates
+
+      - name: Unit tests
+        run: make test
+
+      - name: Unit tests under ASan and UBSan
+        run: make asan-test
+
+      - name: Oracle unit tests
+        run: make oracle-test
+
+      - name: Differential run (short)
+        run: make diff-fuzz N=20000 SEED=1
+
+      - name: Fuzzer under ASan and UBSan (short)
+        run: make fuzz ITERS=200000 SEED=1
+
+      - name: Threat model check
+        run: make threats
+
+      - name: Line count
+        run: make loc
+
+      - name: Benchmark smoke run
+        run: make bench QUICK=1

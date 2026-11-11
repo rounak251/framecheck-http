@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -192,7 +192,7 @@
+   for (;;) {  // HF-04
+     uint8_t b = at(pos_);
+     if (b == kCr && at(pos_ + 1) == kLf) break;
+-    if (b == kCr || b == kLf) unexpected(pos_, field_class(ErrorClass::BadFieldValue));
++    if (b == kCr || b == kLf) throw Reject{field_class(ErrorClass::BadFieldValue), pos_};
+     if (!is_ows(b) && !is_vchar(b)) throw Reject{field_class(ErrorClass::BadFieldValue), pos_};
+     ++pos_;
+     if (!is_ows(b)) f.value_end = pos_;

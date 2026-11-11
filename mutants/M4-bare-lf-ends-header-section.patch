@@ -1,0 +1,10 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -204,6 +204,7 @@
+ // Header field lines until the empty line that ends the header section (HF-06).
+ void Parser::parse_header_section() {
+   for (;;) {
++    if (at(pos_) == kLf) { pos_ += 1; return; }
+     if (at(pos_) == kCr && at(pos_ + 1) == kLf) {
+       pos_ += 2;
+       return;

@@ -1,0 +1,11 @@
+--- a/src/bytes.hpp
++++ b/src/bytes.hpp
+@@ -34,7 +34,7 @@
+     return true;
+   }
+   switch (c) {
+-    case '!': case '#': case '$': case '%': case '&': case '\'': case '*':
++    case '!': case '#': case '$': case '%': case '&': case '\'':
+     case '+': case '-': case '.': case '^': case '_': case '`': case '|': case '~':
+       return true;
+     default:

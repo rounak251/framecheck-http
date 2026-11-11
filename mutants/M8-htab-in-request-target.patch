@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -148,7 +148,7 @@
+   ++pos_;
+ 
+   start = pos_;
+-  while (is_vchar(at(pos_))) ++pos_;
++  while (is_vchar(at(pos_)) || at(pos_) == kHtab) ++pos_;
+   if (pos_ == start || at(pos_) != kSp) unexpected(pos_, ErrorClass::BadRequestLine);
+   ++pos_;
+ 

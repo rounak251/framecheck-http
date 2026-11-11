@@ -1,0 +1,10 @@
+--- a/src/chunked.cpp
++++ b/src/chunked.cpp
+@@ -58,7 +58,6 @@
+     // The whitespace before a ';' or a CR is only part of the grammar when a
+     // value follows the name, so we back up if there is no '='.
+     size_t after_name = pos_;
+-    while (is_ows(at(pos_))) ++pos_;
+     if (at(pos_) == '=') {
+       ++pos_;
+       while (is_ows(at(pos_))) ++pos_;

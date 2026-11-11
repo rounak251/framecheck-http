@@ -1,0 +1,11 @@
+--- a/src/parser.cpp
++++ b/src/parser.cpp
+@@ -114,7 +114,7 @@
+ }
+ 
+ uint8_t Parser::at(size_t i) const {
+-  if (i >= size_) throw NeedMore{};
++  if (i > size_) throw NeedMore{};
+   return data_[i];
+ }
+ 

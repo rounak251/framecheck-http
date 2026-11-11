@@ -1,0 +1,11 @@
+--- a/src/chunked.cpp
++++ b/src/chunked.cpp
+@@ -86,7 +86,7 @@
+   }
+   size_t start = pos_;
+   while (is_tchar(at(pos_))) ++pos_;
+-  if (pos_ == start) unexpected(pos_, ErrorClass::BadChunkExt);
++  (void)start;
+ }
+ 
+ // RFC 9110 section 5.6.4, narrowed as CH-03 says: no obs-text, and a

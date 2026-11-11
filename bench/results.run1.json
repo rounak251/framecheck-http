@@ -1,0 +1,13 @@
+{
+  "mode": "full",
+  "placeholder": false,
+  "stream_bytes": 1073741683,
+  "messages": 6839119,
+  "body_bytes_checksum": 437703616,
+  "seconds": 0.828869,
+  "parse_mb_per_s": 1295.43,
+  "mb_definition": "10^6 bytes per second, single thread",
+  "source_sha256": "4667ef3c595a2b757576fe729915612c8f9eb8eee7013003cdfddd183ad0e1d7",
+  "hardware": "Apple M2",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+}
